@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "titulopixel";
+    src: url(fonts/dogicapixelbold.otf);
+}
+@font-face {
+    font-family:"" ;
+    src: url(fonts/Pix32.ttf);
+}
+@font-face {
+    font-family: "pixel_botones";
+    src: url(fonts/);
+}
+@font-face {
+    font-family: pixel_texto;
+    src: url(fonts/);
+}
+
+header, main, footer{
+    width: 900px;
+    background: lightgoldenrodyellow;
+    margin: auto;
+    padding: 15px;
+}
+
+body{
+    background-image: url(img/background.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    font-size: 18px;
+    font-family: pixel_texto;
+}
+
+h1{
+    color:lightcoral;
+    font-size: 50px;
+    font-family:titulopixel;
+    text-align: center;
+}
+h2,h3{
+    color: lightcoral;
+    font-family: pixelmax;
+    font-size: 35px;
+    text-align: center;
+}
+h4{
+    color: darkolivegreen;
+    font-family: pixel_botones;
+}
+
+nav ul{
+    list-style-type:none;
+    margin: 0px;
+    padding: 0px;
+    display:flex;
+    gap:10px;
+    justify-content: center;
+}
+nav ul li a{
+    text-decoration: none;
+    color: lightgreen;
+    font-family: pixel_botones;
+    background-color: darkolivegreen;
+    padding:5px;
+    font-size: 15px;
+}
+
