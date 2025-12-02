@@ -3,43 +3,40 @@
     src: url(fonts/dogicapixelbold.otf);
 }
 @font-face {
-    font-family:"" ;
-    src: url(fonts/Pix32.ttf);
+    font-family:"pixel_fino" ;
+    src: url(fonts/dogica.otf);
 }
 @font-face {
-    font-family: "pixel_botones";
+    font-family: "minecraft";
     src: url(fonts/);
 }
 @font-face {
-    font-family: pixel_texto;
-    src: url(fonts/);
+    font-family: "pixel_piscina";
+    src: url(fonts/LLPIXEL3.ttf);
 }
-
 header, main, footer{
     width: 900px;
     background: lightgoldenrodyellow;
     margin: auto;
     padding: 15px;
 }
-
 body{
     background-image: url(img/background.gif);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: scroll;
     font-size: 18px;
-    font-family: pixel_texto;
+    font-family:pixel_fino ;
 }
-
 h1{
     color:lightcoral;
-    font-size: 50px;
-    font-family:titulopixel;
+    font-size: 70px;
+    font-family:pixel_piscina;
     text-align: center;
 }
 h2,h3{
     color: lightcoral;
-    font-family: pixelmax;
+    font-family: titulopixel;
     font-size: 35px;
     text-align: center;
 }
@@ -47,7 +44,6 @@ h4{
     color: darkolivegreen;
     font-family: pixel_botones;
 }
-
 nav ul{
     list-style-type:none;
     margin: 0px;
@@ -59,9 +55,39 @@ nav ul{
 nav ul li a{
     text-decoration: none;
     color: lightgreen;
-    font-family: pixel_botones;
+    font-family: minecraft;
     background-color: darkolivegreen;
     padding:5px;
     font-size: 15px;
 }
-
+#sobremi{
+    text-align: center;
+}
+#conocimientos{
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+#proyectos{
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+.proyectos img{
+    width: 80px;
+    margin-bottom: auto;}
+#redes{
+    text-align: center;
+}
+#contacto{
+    text-align: center;
+}
+.categoria{
+    display: flex;
+}
+.bloque img{
+    width: 80px;
+    margin-bottom: auto;
+}
