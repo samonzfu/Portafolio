@@ -136,10 +136,10 @@ nav ul li a:hover{
     justify-content: center;
 }
 #contacto, #contacto a{
-    color:rgb(16, 47, 66);
+    color:rgb(108, 180, 159);
     font-size: 16px;
 }
 #contacto a:hover{
-    color:rgb(163, 57, 97);
+    color:rgb(229, 173, 195);
     font-size: 17px;
 }
