@@ -27,7 +27,6 @@ body{
     background-attachment: scroll;
     font-size: 14px;
     font-family:minecraft ;
-    text-align: center;
     color:rgb(108, 180, 159);
 }
 /*--TÍTULOS--*/
@@ -50,6 +49,7 @@ h4{
     color: rgb(108, 180, 159);
     font-family: titulopixel;
     font-size: 25px;
+    text-align: center;
 }
 /*--BARRA NAVEGACIÓN--*/
 nav ul{
@@ -71,9 +71,8 @@ nav ul li a:hover{
     color: rgb(16, 47, 66);
     background-color: rgb(108, 180, 159);
 }
-
 /*--SOBRE MÍ--*/
-
+#sobremi{text-align: center;}
 /*--CONOCIMIENTOS--*/
 #conocimientos{
     max-width: 1000px;
@@ -91,15 +90,17 @@ nav ul li a:hover{
     margin-bottom: 30px;
 }
 .bloque{
-    width: 280px;        /* O el ancho que quieras */
-    text-align: center;  /* Para centrar la imagen y el texto */
+    width: 290px;  /* Para centrar la imagen y el texto */
     padding: 15px;
     background:rgb(16, 47, 66);
     border-radius: 10px;
 }
 .bloque img{
-    width: 80px;
-    margin-bottom: auto;
+    width: 100px;
+    height: 100px;
+    object-fit: contain; /*para forzar que queden iguales*/
+    display: block;
+    margin: 0 auto 10px;
 }
 /*--PROYECTOS--*/
 #proyectos{
@@ -107,7 +108,8 @@ nav ul li a:hover{
     margin: auto;
     margin-bottom:20px;
     padding: 20px;
-
+    text-align: center;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;/*Esto era para que bajen a la siguiente línea si no caben*/
     gap: 20px; /* SOLUCIONAR: EL BORDE NO ES IGUAL????*/
