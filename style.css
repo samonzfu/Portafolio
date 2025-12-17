@@ -15,10 +15,12 @@
     src: url(fonts/LLPIXEL3.ttf);
 }
 header, main, footer{
-    width: 1000px;
+    max-width: 1000px;
+    width: 100%;
     background: rgb(28, 91, 118);
     margin: auto;
     padding: 15px;
+    box-sizing: border-box;
 }
 body{
     background-image: url(img/background.gif);
@@ -87,11 +89,13 @@ nav ul li a:hover{
     margin-bottom: 7px;
     list-style-type: none;
 }
+/*#############################################*/
 .categoria .bloque ul hr{
     border: 0; /*Esto es para quitar el borde gris*/
     border-top: 2px rgb(108, 180, 159);/* ARREGLAR COLOR DFHHHHHHHHHHHHHHHHHHHHHHHHHHH */
     margin: 4px 0; 
 }
+/*############################################*/
 .categoria {
     display: flex;
     flex-wrap: wrap;
@@ -100,11 +104,14 @@ nav ul li a:hover{
     margin-bottom: 30px;
 }
 .bloque{
-    width: 290px;  /* Para centrar la imagen y el texto */
+    flex: 1 1 250px;  
+    max-width: 290px;    
     padding: 15px;
     background:rgb(16, 47, 66);
     border-radius: 10px;
+    box-sizing: border-box;
 }
+
 .bloque img{
     width: 100px;
     height: 100px;
@@ -125,14 +132,15 @@ nav ul li a:hover{
     gap: 20px; /* SOLUCIONAR: EL BORDE NO ES IGUAL????*/
 }
 #proyectos article{
-    width: 30%;
-    background:rgb(16, 47, 66) ;
+    flex: 1 1 250px; 
+    max-width: 320px; 
+    background:rgb(16, 47, 66);
     padding: 5px;
     border-radius: 10px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
 }
 #proyectos article a{
     color:rgb(163, 57, 97);
