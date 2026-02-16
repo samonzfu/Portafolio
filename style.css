@@ -1,7 +1,7 @@
 /* --- 1. VARIABLES Y FUENTES --- */
         :root {
             /* Definimos los colores aquí para usarlos fácilmente */
-            --bg-body: #051620; /* Un azul más oscuro para el fondo */
+            --bg-body: #051620;
             --bg-card: #102f42;
             --text-main: #6cb49f;
             --text-accent: #e5adc3;
