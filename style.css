@@ -1,170 +1,266 @@
-@font-face {
-    font-family: "titulopixel";
-    src: url(fonts/dogicapixelbold.otf);
-}
-@font-face {
-    font-family:"pixel_fino" ;
-    src: url(fonts/dogica.otf);
-}
-@font-face {
-    font-family: "minecraft";
-    src: url(fonts/minecraft.ttf);
-}
-@font-face {
-    font-family: "pixel_piscina";
-    src: url(fonts/LLPIXEL3.ttf);
-}
-header, main, footer{
-    max-width: 1000px;
-    width: 100%;
-    background: rgb(28, 91, 118);
-    margin: auto;
-    padding: 15px;
-    box-sizing: border-box;
-}
-body{
-    background-image: url(img/background.gif);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    font-size: 14px;
-    font-family:minecraft ;
-    color:rgb(108, 180, 159);
-}
-/*--TÍTULOS--*/
-h1{
-    color:rgb(229, 173, 195);
-    font-size: 70px;
-    font-family:pixel_piscina;
-    text-align: center;
-    text-transform: uppercase;
-    
-}
-h2,h3{
-    color:rgb(229, 173, 195);
-    font-family: titulopixel;
-    font-size: 35px;
-    text-align: center;
-    text-transform: uppercase;
-}
-h4{
-    color: rgb(108, 180, 159);
-    font-family: titulopixel;
-    font-size: 25px;
-    text-align: center;
-}
-/*--BARRA NAVEGACIÓN--*/
-nav ul{
-    list-style-type:none;
-    display:flex;
-    gap:50px;
-    justify-content: center;
-}
-nav ul li a{
-    text-decoration: none;
-    color: rgb(108, 180, 159);
-    font-family: minecraft;
-    background-color: rgb(16, 47, 66);
-    padding:10px;
-    border-radius: 10px;
-    font-size: 15px;
-}
-nav ul li a:hover{
-    color: rgb(16, 47, 66);
-    background-color: rgb(108, 180, 159);
-}
-/*--SOBRE MÍ--*/
-#sobremi{text-align: center;}
-/*--CONOCIMIENTOS--*/
-#conocimientos{
-    max-width: 1000px;
-    font-size: 13px;
-}
-#conocimientos ul{
-    margin: 0; 
-    padding: 0; 
-    text-align: center;
-}
-#conocimientos ul li{
-    margin-bottom: 7px;
-    list-style-type: none;
-}
-/*#############################################*/
-.categoria .bloque ul hr{
-    border: 0; /*Esto es para quitar el borde gris*/
-    border-top: 2px rgb(108, 180, 159);/* ARREGLAR COLOR DFHHHHHHHHHHHHHHHHHHHHHHHHHHH */
-    margin: 4px 0; 
-}
-/*############################################*/
-.categoria {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 20px;
-    margin-bottom: 30px;
-}
-.bloque{
-    flex: 1 1 250px;  
-    max-width: 290px;    
-    padding: 15px;
-    background:rgb(16, 47, 66);
-    border-radius: 10px;
-    box-sizing: border-box;
-}
+/* --- 1. VARIABLES Y FUENTES --- */
+        :root {
+            /* Definimos los colores aquí para usarlos fácilmente */
+            --bg-body: #051620; /* Un azul más oscuro para el fondo */
+            --bg-card: #102f42;
+            --text-main: #6cb49f;
+            --text-accent: #e5adc3;
+            --border-shadow: #081a26;
+            --white: #ffffff;
+        }
 
-.bloque img{
-    width: 100px;
-    height: 100px;
-    object-fit: contain; /*para forzar que queden iguales*/
-    display: block;
-    margin: 0 auto 10px;
-}
-/*--PROYECTOS--*/
-#proyectos{
-    max-width: 1200px;
-    margin: auto;
-    margin-bottom:20px;
-    padding: 20px;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;/*Esto era para que bajen a la siguiente línea si no caben*/
-    gap: 20px; /* SOLUCIONAR: EL BORDE NO ES IGUAL????*/
-}
-#proyectos article{
-    flex: 1 1 250px; 
-    max-width: 320px; 
-    background:rgb(16, 47, 66);
-    padding: 5px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-}
-#proyectos article a{
-    color:rgb(163, 57, 97);
-    text-decoration: none;
-    margin-top: auto;
-}
-#proyectos a:hover{
-    color: rgb(229, 173, 195);
-    font-size: 15px;
-}
-#proyectos article img{width: 150px;height: auto;margin-bottom: 10px;}
-/*--CONTACTO--*/
-#contacto{
-    font-family:titulopixel;
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    justify-content: center;
-}
-#contacto, #contacto a{
-    color:rgb(108, 180, 159);
-    font-size: 16px;
-}
-#contacto a:hover{
-    color:rgb(229, 173, 195);
-    font-size: 17px;
-}
+        @font-face {
+            font-family: "titulopixel";
+            src: url(fonts/dogicapixelbold.otf);
+            font-display: swap; /* Buena práctica para carga */
+        }
+        @font-face {
+            font-family: "pixel_piscina";
+            src: url(fonts/LLPIXEL3.ttf);
+            font-display: swap;
+        }
+        @font-face {
+            font-family: "minecraft";
+            src: url(fonts/minecraft.ttf);
+            font-display: swap;
+        }
+
+        /* --- 2. ESTILOS GENERALES --- */
+        body {
+            /* Si la imagen falla, usamos el color de fondo */
+            background-color: var(--bg-body); 
+            background-image: url(img/background.gif);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fixed queda mejor al hacer scroll */
+            font-size: 14px;
+            font-family: 'minecraft', 'Courier New', monospace; /* Fuente fallback */
+            color: var(--text-main);
+            margin: 0;
+            cursor: crosshair; /* Cursor estilo shooter retro */
+        }
+
+        /* Fuerza que las imágenes no se vean borrosas al escalar */
+        img {
+            image-rendering: pixelated;
+        }
+
+        main {
+            max-width: 1000px;
+            width: 90%; /* Mejor para móviles */
+            background: rgba(28, 91, 118, 0.95); /* Un poco de transparencia */
+            margin: 40px auto;
+            padding: 20px;
+            box-sizing: border-box;
+            /* Borde estilo Pixel Art */
+            border: 4px solid var(--text-main);
+            box-shadow: 10px 10px 0px var(--border-shadow);
+        }
+
+        /* --- 3. TIPOGRAFÍA --- */
+        h1 {
+            color: var(--text-accent);
+            font-size: clamp(40px, 8vw, 70px); /* Tamaño responsive sin media queries */
+            font-family: 'pixel_piscina', sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px var(--border-shadow);
+            margin-bottom: 40px;
+        }
+
+        h2, h3 {
+            color: var(--text-accent);
+            font-family: 'titulopixel', sans-serif;
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 40px;
+            text-shadow: 2px 2px 0px var(--border-shadow);
+        }
+
+        h4 {
+            color: var(--white);
+            font-family: 'titulopixel', sans-serif;
+            font-size: 20px;
+            text-align: center;
+            background-color: var(--text-main);
+            color: var(--bg-card);
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 20px auto;
+        }
+
+        /* --- 4. NAVEGACIÓN (Estilo Botones Retro) --- */
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap; /* Para móviles */
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: 'minecraft', monospace;
+            background-color: var(--bg-card);
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid var(--text-main);
+            box-shadow: 4px 4px 0px var(--border-shadow); /* Sombra sólida */
+            transition: all 0.1s; /* Animación rápida */
+            display: block;
+        }
+
+        nav ul li a:hover {
+            transform: translate(2px, 2px); /* Mueve el botón */
+            box-shadow: 2px 2px 0px var(--border-shadow); /* Reduce la sombra */
+            background-color: var(--text-accent);
+            color: var(--bg-card);
+            border-color: var(--bg-card);
+        }
+
+        /* --- 5. SECCIONES --- */
+        #sobremi {
+            text-align: center;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* --- CONOCIMIENTOS --- */
+        .categoria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .bloque {
+            flex: 1 1 280px;
+            max-width: 350px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 2px solid var(--text-main);
+            box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+            border-radius: 4px; /* Un poco cuadrado para ser pixel art */
+            box-sizing: border-box;
+        }
+
+        .bloque img {
+            width: 64px; /* Potencias de 2 (pixel art) */
+            height: 64px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 15px;
+            filter: drop-shadow(2px 2px 0px var(--text-accent));
+        }
+
+        .bloque ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Reemplazo de los <hr> con border-bottom */
+        .bloque ul li {
+            list-style-type: none;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--text-main); /* Línea punteada retro */
+            text-align: left;
+        }
+        
+        .bloque ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* --- PROYECTOS --- */
+        #proyectos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        #proyectos article {
+            flex: 1 1 280px;
+            max-width: 300px;
+            background: var(--bg-card);
+            padding: 20px;
+            border: 4px solid var(--bg-card); /* Borde invisible inicial */
+            outline: 2px solid var(--text-main); /* Doble borde estilo retro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        #proyectos article:hover {
+            transform: translateY(-5px); /* Flota al pasar el ratón */
+            outline-color: var(--text-accent);
+        }
+
+        #proyectos article img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 15px;
+            border: 2px solid var(--text-main);
+            padding: 5px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        #proyectos article h4 {
+            background: none;
+            color: var(--text-accent);
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            padding: 0;
+        }
+
+        /* Botón de enlace en proyectos */
+        #proyectos article a {
+            margin-top: auto;
+            display: inline-block;
+            text-decoration: none;
+            background-color: var(--text-main);
+            color: var(--bg-card);
+            padding: 8px 16px;
+            font-family: 'minecraft', monospace;
+            font-weight: bold;
+            box-shadow: 3px 3px 0px var(--border-shadow);
+        }
+
+        #proyectos article a:hover {
+            background-color: var(--text-accent);
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px var(--border-shadow);
+        }
+
+        /* --- CONTACTO --- */
+        #contacto {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        #contacto a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 18px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        #contacto a:hover {
+            color: var(--text-accent);
+            border-bottom: 2px solid var(--text-accent); /* Subrayado animado */
+        }
+        
+        .separador {
+            color: var(--text-main);
+        }
