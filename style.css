@@ -1,266 +1,323 @@
 /* --- 1. VARIABLES Y FUENTES --- */
-        :root {
-            /* Definimos los colores aquí para usarlos fácilmente */
-            --bg-body: #051620;
-            --bg-card: #102f42;
-            --text-main: #6cb49f;
-            --text-accent: #e5adc3;
-            --border-shadow: #081a26;
-            --white: #ffffff;
-        }
+:root {
+--bg-body: #051620;
+--bg-card: #102f42;
+--text-main: #6cb49f;
+--text-accent: #e5adc3;
+--border-shadow: #081a26;
+--white: #ffffff;
+}
 
-        @font-face {
-            font-family: "titulopixel";
-            src: url(fonts/dogicapixelbold.otf);
-            font-display: swap; /* Buena práctica para carga */
-        }
-        @font-face {
-            font-family: "pixel_piscina";
-            src: url(fonts/LLPIXEL3.ttf);
-            font-display: swap;
-        }
-        @font-face {
-            font-family: "minecraft";
-            src: url(fonts/minecraft.ttf);
-            font-display: swap;
-        }
+@font-face { font-family: "titulopixel"; src: url(fonts/dogicapixelbold.otf); font-display: swap; }
+@font-face { font-family: "pixel_piscina"; src: url(fonts/LLPIXEL3.ttf); font-display: swap; }
+@font-face { font-family: "minecraft"; src: url(fonts/minecraft.ttf); font-display: swap; }
 
-        /* --- 2. ESTILOS GENERALES --- */
-        body {
-            /* Si la imagen falla, usamos el color de fondo */
-            background-color: var(--bg-body); 
-            background-image: url(img/background.gif);
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Fixed queda mejor al hacer scroll */
-            font-size: 14px;
-            font-family: 'minecraft', 'Courier New', monospace; /* Fuente fallback */
-            color: var(--text-main);
-            margin: 0;
-            cursor: crosshair; /* Cursor estilo shooter retro */
-        }
+/* --- 2. ESTILOS GENERALES Y UTILIDADES --- */
+body {
+background-color: var(--bg-body); 
+background-image: url(img/background.gif);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+font-size: 14px;
+font-family: 'minecraft', 'Courier New', monospace;
+color: var(--text-main);
+margin: 0;
+cursor: crosshair;
+text-align: center;
+}
 
-        /* Fuerza que las imágenes no se vean borrosas al escalar */
-        img {
-            image-rendering: pixelated;
-        }
+img { image-rendering: pixelated; }
 
-        main {
-            max-width: 1000px;
-            width: 90%; /* Mejor para móviles */
-            background: rgba(28, 91, 118, 0.95); /* Un poco de transparencia */
-            margin: 40px auto;
-            padding: 20px;
-            box-sizing: border-box;
-            /* Borde estilo Pixel Art */
-            border: 4px solid var(--text-main);
-            box-shadow: 10px 10px 0px var(--border-shadow);
-        }
+main {
+max-width: 1000px;
+width: 90%;
+background: rgba(28, 91, 118, 0.95);
+margin: 40px auto;
+padding: 20px;
+box-sizing: border-box;
+border: 4px solid var(--text-main);
+box-shadow: 10px 10px 0px var(--border-shadow);
+}
 
-        /* --- 3. TIPOGRAFÍA --- */
-        h1 {
-            color: var(--text-accent);
-            font-size: clamp(40px, 8vw, 70px); /* Tamaño responsive sin media queries */
-            font-family: 'pixel_piscina', sans-serif;
-            text-align: center;
-            text-transform: uppercase;
-            text-shadow: 4px 4px 0px var(--border-shadow);
-            margin-bottom: 40px;
-        }
+/* Clases de utilidad (reemplazan los style="") */
+.text-center { text-align: center; }
+.nav-back { text-align: left; margin-bottom: 20px; }
+.hint-text { text-align: center; font-size: 12px; margin-bottom: 15px; }
+.separador { color: var(--text-main); }
 
-        h2, h3 {
-            color: var(--text-accent);
-            font-family: 'titulopixel', sans-serif;
-            font-size: 30px;
-            text-align: center;
-            text-transform: uppercase;
-            margin-top: 40px;
-            text-shadow: 2px 2px 0px var(--border-shadow);
-        }
+/* --- 3. TIPOGRAFÍA --- */
+h1 {
+color: var(--text-accent);
+font-size: clamp(40px, 8vw, 70px);
+font-family: 'pixel_piscina', sans-serif;
+text-align: center;
+text-transform: uppercase;
+text-shadow: 4px 4px 0px var(--border-shadow);
+margin-bottom: 40px;
+}
 
-        h4 {
-            color: var(--white);
-            font-family: 'titulopixel', sans-serif;
-            font-size: 20px;
-            text-align: center;
-            background-color: var(--text-main);
-            color: var(--bg-card);
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 20px auto;
-        }
+h2, h3 {
+color: var(--text-accent);
+font-family: 'titulopixel', sans-serif;
+font-size: 30px;
+text-align: center;
+text-transform: uppercase;
+margin-top: 40px;
+text-shadow: 2px 2px 0px var(--border-shadow);
+}
 
-        /* --- 4. NAVEGACIÓN (Estilo Botones Retro) --- */
-        nav ul {
-            list-style-type: none;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap; /* Para móviles */
-            padding: 0;
-        }
+h4 {
+color: var(--bg-card);
+background-color: var(--text-main);
+font-family: 'titulopixel', sans-serif;
+font-size: 20px;
+text-align: center;
+display: inline-block;
+padding: 5px 10px;
+margin: 20px auto;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-family: 'minecraft', monospace;
-            background-color: var(--bg-card);
-            padding: 12px 20px;
-            font-size: 16px;
-            border: 2px solid var(--text-main);
-            box-shadow: 4px 4px 0px var(--border-shadow); /* Sombra sólida */
-            transition: all 0.1s; /* Animación rápida */
-            display: block;
-        }
+/* --- 4. NAVEGACIÓN --- */
+nav ul {
+list-style-type: none;
+display: flex;
+gap: 20px;
+justify-content: center;
+flex-wrap: wrap;
+padding: 0;
+}
 
-        nav ul li a:hover {
-            transform: translate(2px, 2px); /* Mueve el botón */
-            box-shadow: 2px 2px 0px var(--border-shadow); /* Reduce la sombra */
-            background-color: var(--text-accent);
-            color: var(--bg-card);
-            border-color: var(--bg-card);
-        }
+nav ul li a {
+text-decoration: none;
+color: var(--text-main);
+font-family: 'minecraft', monospace;
+background-color: var(--bg-card);
+padding: 12px 20px;
+font-size: 16px;
+border: 2px solid var(--text-main);
+box-shadow: 4px 4px 0px var(--border-shadow);
+transition: all 0.1s;
+display: block;
+}
 
-        /* --- 5. SECCIONES --- */
-        #sobremi {
-            text-align: center;
-            line-height: 1.6;
-            padding: 0 20px;
-        }
+nav ul li a:hover {
+transform: translate(2px, 2px);
+box-shadow: 2px 2px 0px var(--border-shadow);
+background-color: var(--text-accent);
+color: var(--bg-card);
+border-color: var(--bg-card);
+}
 
-        /* --- CONOCIMIENTOS --- */
-        .categoria {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
+/* --- 5. COMPONENTES: TARJETAS (Skills, Proyectos, Galería) --- */
+.bloque, #proyectos article, .foto-item {
+background: var(--bg-card);
+padding: 20px;
+border: 2px solid var(--text-main); /* Base border */
+box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
+border-radius: 4px;
+box-sizing: border-box;
+text-align: center;
+}
 
-        .bloque {
-            flex: 1 1 280px;
-            max-width: 350px;
-            padding: 20px;
-            background: var(--bg-card);
-            border: 2px solid var(--text-main);
-            box-shadow: 6px 6px 0px rgba(0,0,0,0.3);
-            border-radius: 4px; /* Un poco cuadrado para ser pixel art */
-            box-sizing: border-box;
-        }
+/* --- 6. SECCIONES ESPECÍFICAS --- */
 
-        .bloque img {
-            width: 64px; /* Potencias de 2 (pixel art) */
-            height: 64px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 15px;
-            filter: drop-shadow(2px 2px 0px var(--text-accent));
-        }
+/* CONOCIMIENTOS (Skills) */
+.categoria {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+margin-bottom: 30px;
+}
 
-        .bloque ul {
-            padding: 0;
-            margin: 0;
-        }
+.bloque {
+flex: 1 1 280px;
+max-width: 350px;
+}
 
-        /* Reemplazo de los <hr> con border-bottom */
-        .bloque ul li {
-            list-style-type: none;
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--text-main); /* Línea punteada retro */
-            text-align: left;
-        }
-        
-        .bloque ul li:last-child {
-            border-bottom: none;
-        }
+.bloque img {
+width: 100%;
+max-width: 150px;
+height: auto;
+object-fit: contain;
+display: block;
+margin: 0 auto 15px;
+/* Estilo caja retro */
+padding: 5px;
+border: none; /* Si prefieres sin borde, pon 'none' */
+}
 
-        /* --- PROYECTOS --- */
-        #proyectos {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px 0;
-        }
+.bloque ul { padding: 0; margin: 0; }
+.bloque ul li {
+list-style-type: none;
+padding: 8px 0;
+border-bottom: 1px dashed var(--text-main);
+text-align: center;
+}
+.bloque ul li:last-child { border-bottom: none; }
 
-        #proyectos article {
-            flex: 1 1 280px;
-            max-width: 300px;
-            background: var(--bg-card);
-            padding: 20px;
-            border: 4px solid var(--bg-card); /* Borde invisible inicial */
-            outline: 2px solid var(--text-main); /* Doble borde estilo retro */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.2s;
-        }
+/* PROYECTOS */
+#proyectos {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 30px;
+padding: 20px 0;
+}
 
-        #proyectos article:hover {
-            transform: translateY(-5px); /* Flota al pasar el ratón */
-            outline-color: var(--text-accent);
-        }
+#proyectos article {
+flex: 1 1 280px;
+max-width: 300px;
+border: 4px solid var(--bg-card);
+outline: 2px solid var(--text-main);
+display: flex;
+flex-direction: column;
+align-items: center;
+transition: transform 0.2s;
+}
 
-        #proyectos article img {
-            width: 100%;
-            max-width: 150px;
-            height: auto;
-            margin-bottom: 15px;
-            border: 2px solid var(--text-main);
-            padding: 5px;
-            background: rgba(0,0,0,0.2);
-        }
+#proyectos article:hover {
+transform: translateY(-5px);
+outline-color: var(--text-accent);
+}
 
-        #proyectos article h4 {
-            background: none;
-            color: var(--text-accent);
-            font-size: 18px;
-            margin: 0 0 10px 0;
-            padding: 0;
-        }
+#proyectos article img {
+width: 100%;
+max-width: 150px;
+height: auto;
+margin-bottom: 15px;
+padding: 5px;
+border: none;
+}
 
-        /* Botón de enlace en proyectos */
-        #proyectos article a {
-            margin-top: auto;
-            display: inline-block;
-            text-decoration: none;
-            background-color: var(--text-main);
-            color: var(--bg-card);
-            padding: 8px 16px;
-            font-family: 'minecraft', monospace;
-            font-weight: bold;
-            box-shadow: 3px 3px 0px var(--border-shadow);
-        }
+#proyectos article h4 {
+background: none;
+color: var(--text-accent);
+font-size: 18px;
+margin: 0 0 10px 0;
+padding: 0;
+}
 
-        #proyectos article a:hover {
-            background-color: var(--text-accent);
-            transform: translate(1px, 1px);
-            box-shadow: 2px 2px 0px var(--border-shadow);
-        }
+#proyectos article a {
+margin-top: auto;
+display: inline-block;
+text-decoration: none;
+background-color: var(--text-main);
+color: var(--bg-card);
+padding: 8px 16px;
+font-family: 'minecraft', monospace;
+font-weight: bold;
+box-shadow: 3px 3px 0px var(--border-shadow);
+}
 
-        /* --- CONTACTO --- */
-        #contacto {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            padding-bottom: 40px;
-            flex-wrap: wrap;
-        }
+#proyectos article a:hover {
+background-color: var(--text-accent);
+transform: translate(1px, 1px);
+box-shadow: 2px 2px 0px var(--border-shadow);
+}
 
-        #contacto a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 18px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-        }
+/* GALERÍA RETROPLAY */
+.galeria-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+padding: 20px 0;
+}
 
-        #contacto a:hover {
-            color: var(--text-accent);
-            border-bottom: 2px solid var(--text-accent); /* Subrayado animado */
-        }
-        
-        .separador {
-            color: var(--text-main);
-        }
+.foto-item {
+padding: 10px;
+box-shadow: 4px 4px 0px var(--border-shadow);
+}
+
+.foto-item img {
+width: 100%;
+height: auto;
+display: block;
+border: 2px solid var(--border-shadow);
+}
+
+.foto-item h4 {
+margin-top: 10px;
+font-size: 14px;
+background: none;
+color: var(--white);
+}
+
+/* CONTACTO */
+#contacto {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+padding-bottom: 40px;
+flex-wrap: wrap;
+}
+
+#contacto a {
+color: var(--text-main);
+text-decoration: none;
+font-size: 18px;
+border-bottom: 2px solid transparent;
+transition: border-color 0.3s;
+}
+
+#contacto a:hover {
+color: var(--text-accent);
+border-bottom: 2px solid var(--text-accent);
+}
+
+/* --- 7. VENTANA MODAL (Lightbox) --- */
+.img-zoom { cursor: zoom-in; transition: 0.3s; }
+.img-zoom:hover { opacity: 0.8; }
+
+.modal {
+display: none; 
+position: fixed; 
+z-index: 1000;
+padding-top: 60px; 
+left: 0; top: 0;
+width: 100%; height: 100%; 
+overflow: auto; 
+background-color: rgba(0,0,0,0.9);
+backdrop-filter: blur(5px);
+}
+
+.modal-contenido {
+margin: auto;
+display: block;
+width: 80%;
+max-width: 900px;
+border: 4px solid var(--text-main);
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+animation: zoom 0.3s;
+}
+
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
+
+#caption {
+margin: auto;
+display: block;
+width: 80%; max-width: 700px;
+text-align: center;
+color: var(--text-accent);
+padding: 10px 0;
+font-family: 'titulopixel', sans-serif;
+font-size: 20px;
+}
+
+.cerrar {
+position: absolute;
+top: 15px; right: 35px;
+color: var(--white);
+font-size: 40px;
+font-weight: bold;
+transition: 0.3s;
+cursor: pointer;
+font-family: sans-serif;
+}
+.cerrar:hover { color: var(--text-accent); }
+
+@media only screen and (max-width: 700px){
+.modal-contenido { width: 95%; }
+}
