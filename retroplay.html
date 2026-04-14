@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>RetroPlay - Sara Monzó</title>
     <meta charset="utf-8">
@@ -7,6 +8,7 @@
     <link rel="icon" href="img/portfolio.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
         <nav class="nav-back">
@@ -19,9 +21,12 @@
 
         <section id="sobremi">
             <div style="padding: 0 20px; text-align: center; line-height: 1.6;">
-                <p>RetroPlay es una tienda de alquiler de videojuegos retro desarrollada en equipo. En este proyecto implementamos metodologías ágiles (Scrum) y nos enfocamos en una experiencia de usuario nostálgica. Esta web es un proyecto que debemos desarrollar durante todo el primer curso así que está sometida a cambios constantes.</p>
+                <p>RetroPlay es una tienda de alquiler de videojuegos retro desarrollada en equipo. En este proyecto
+                    implementamos metodologías ágiles (Scrum) y nos enfocamos en una experiencia de usuario nostálgica.
+                    Esta web es un proyecto que debemos desarrollar durante todo el primer curso así que está sometida a
+                    cambios constantes.</p>
             </div>
-            
+
             <div class="text-center">
                 <h4>TECNOLOGÍAS: HTML, CSS, JS, PHP</h4>
             </div>
@@ -30,7 +35,7 @@
         <section>
             <h3>Galería de Imágenes</h3>
             <p class="hint-text">(Haz clic en las imágenes para ampliar)</p>
-            
+
             <div class="galeria-grid">
                 <article class="foto-item">
                     <img src="img/inicio.jpg" alt="Pantalla de inicio Retroplay" class="img-zoom">
@@ -64,7 +69,7 @@
         const span = document.getElementsByClassName("cerrar")[0];
 
         imagenes.forEach(img => {
-            img.onclick = function(){
+            img.onclick = function () {
                 modal.style.display = "block";
                 modalImg.src = this.src;
                 captionText.innerHTML = this.alt;
@@ -72,10 +77,11 @@
         });
 
         span.onclick = () => modal.style.display = "none";
-        
+
         modal.onclick = (event) => {
             if (event.target === modal) modal.style.display = "none";
         }
     </script>
 </body>
+
 </html>
