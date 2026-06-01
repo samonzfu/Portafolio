@@ -1,0 +1,49 @@
+/* ==================== VARIABLES (copia de style.css para que funcione solo) ==================== */
+:root {
+    --color-principal: #6B1E3A;
+    --color-acento: #A03B60;
+    --color-rosa-claro: #FDF0F3;
+    --color-texto: #1E1621;
+    --color-gris: #7A6E7D;
+    --color-fondo: #FDF0F3;
+}
+
+/* ==================== NAVBAR ==================== */
+
+/* El header se queda pegado arriba al hacer scroll (sticky) */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100; /* número alto para que aparezca por encima de todo lo demás */
+}
+
+/* Barra de navegación principal */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-principal);
+    font-size: 18px;
+}
+
+/* Estilo de cada enlace del menú */
+.navbar a {
+    color: var(--color-rosa-claro);
+    padding: 14px 24px;
+    text-decoration: none; /* quitamos el subrayado */
+    text-align: center;
+    letter-spacing: 1px;
+    transition: background-color 0.2s; /* el hover cambia suavemente */
+}
+
+/* Color de fondo al pasar el ratón por un enlace */
+.navbar a:hover {
+    background-color: var(--color-acento);
+}
+
+/* ==================== RESPONSIVE ==================== */
+/* En móvil los enlaces se apilan en columna */
+@media screen and (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+    }
+}

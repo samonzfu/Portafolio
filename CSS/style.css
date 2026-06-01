@@ -1,0 +1,297 @@
+/* Importamos los estilos del carrusel Swiper y la navbar */
+@import "swiper.css";
+@import "navbar.css";
+
+/* ==================== RESET Y BASE ==================== */
+/* Eliminamos márgenes y paddings por defecto del navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* el padding no suma al ancho total del elemento */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* ==================== VARIABLES DE COLOR ==================== */
+/* Definimos los colores aquí para usarlos en todo el CSS con var(--nombre) */
+:root {
+    --color-principal: #6B1E3A;   /* burdeos oscuro: navbar, botones */
+    --color-acento: #A03B60;      /* rosa oscuro: hovers y títulos h2, h3 */
+    --color-rosa-claro: #FDF0F3;  /* rosa muy suave: fondo y textos claros */
+    --color-texto: #1E1621 ;       /* casi negro: texto principal */
+    --color-gris: #7A6E7D;        /* gris morado: labels del formulario */
+    --color-fondo: #FDF0F3;       /* fondo general de la página */
+}
+
+/* ==================== ESTILOS GENERALES ==================== */
+body {
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+}
+
+h1 {
+    color: var(--color-principal);
+    font-size: 35px;
+    text-align: center;
+}
+
+h2 {
+    color: var(--color-acento);
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: var(--color-acento);
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+p {
+    color: var(--color-texto);
+    text-align: center;
+}
+
+/* Cada sección ocupa al menos toda la pantalla */
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px; /* espacio lateral para que no pegue en los bordes */
+}
+
+
+/* ==================== SECCIÓN SOBRE MÍ ==================== */
+
+/* Contenedor principal: texto + habilidades en fila */
+.sobremi-content {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start; /* alinea los dos bloques desde arriba */
+    width: 100%;
+    max-width: 950px;
+}
+
+/* Bloque de texto de presentación */
+.sobremi-texto {
+    flex: 1;
+    background-color: white;
+    border-left: 4px solid var(--color-acento); /* línea decorativa a la izquierda */
+    border-radius: 0 8px 8px 0;
+    padding: 24px;
+    box-shadow: 0 2px 12px rgba(107, 30, 58, 0.08); /* sombra suave con el color principal */
+}
+
+.sobremi-texto p {
+    text-align: left;
+    line-height: 1.7; /* espacio entre líneas para mejor lectura */
+    color: var(--color-texto);
+}
+
+/* Bloque de habilidades técnicas */
+.conocimientos {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Cada grupo (Lenguajes, BD, Herramientas) tiene su propia tarjeta */
+.conocimientos-grupo {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px 20px;
+    box-shadow: 0 2px 12px rgba(107, 30, 58, 0.08);
+}
+
+/* Lista de iconos dentro de cada grupo */
+.conocimientos ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* si hay muchos iconos, saltan a la siguiente línea */
+    gap: 16px;
+    list-style: none;
+    padding: 10px 0 0 0;
+    justify-content: center;
+}
+
+/* Cada tecnología: icono encima y texto debajo */
+.conocimientos li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--color-gris);
+}
+
+/* Tamaño de los iconos de tecnologías */
+.icono-tarjetas {
+    width: 32px;
+    height: 32px;
+    object-fit: contain; /* el icono no se deforma si no es cuadrado */
+    transition: transform 0.2s;
+}
+
+/* Pequeño efecto al pasar el ratón por encima */
+.icono-tarjetas:hover {
+    transform: scale(1.15);
+}
+
+
+/* ==================== SECCIÓN CONTACTO ==================== */
+
+/* Texto de introducción del apartado */
+.contacto-intro {
+    margin-bottom: 30px;
+    color: var(--color-gris);
+    font-size: 15px;
+}
+
+/* Contenedor principal: todo en columna, centrado */
+.contacto-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* ---- Formulario ---- */
+
+/* El formulario ocupa todo el ancho del contenedor */
+.contacto-content form {
+    width: 100%;
+}
+
+/* Agrupamos todos los campos del formulario en columna */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+}
+
+/* Estilo de los inputs y el textarea */
+.input-group input,
+.input-group textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--color-gris); /* solo línea inferior, estilo minimalista */
+    outline: none;
+    padding: 8px 0;
+    color: var(--color-texto);
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s; /* la línea cambia de color suavemente al enfocar */
+}
+
+/* Cuando el campo está activo (el usuario escribe) cambia el color de la línea */
+.input-group input:focus,
+.input-group textarea:focus {
+    border-bottom-color: var(--color-acento);
+}
+
+/* Etiquetas de cada campo */
+.input-group label {
+    color: var(--color-gris);
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+/* Botón de envío del formulario */
+.btn {
+    margin-top: 24px;
+    padding: 10px 32px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    align-self: flex-start; /* el botón no ocupa todo el ancho */
+}
+
+/* Color del botón al pasar el ratón */
+.btn:hover {
+    background-color: var(--color-acento);
+}
+
+/* ---- Redes Sociales ---- */
+
+/* Contenedor de las redes: debajo del formulario, en columna para que el h3 quede arriba */
+.redes-sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* centra el h3 y los enlaces horizontalmente */
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid #e8d5db; /* línea separadora respecto al formulario */
+}
+
+/* Fila que contiene los dos enlaces uno al lado del otro */
+.redes-sociales-links {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+/* Cada enlace de red social: icono + texto en fila */
+.red-social-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--color-texto);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent; /* borde invisible que aparece en hover */
+    transition: border-color 0.3s, background-color 0.3s, transform 0.2s;
+}
+
+/* Efecto hover en los enlaces de redes */
+.red-social-link:hover {
+    border-color: var(--color-acento);
+    background-color: white;
+    transform: translateX(4px); /* se desplaza ligeramente a la derecha */
+}
+
+/* Tamaño de los iconos de redes sociales */
+.icono-social {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--color-gris);
+    font-size: 13px;
+    border-top: 1px solid #e8d5db;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+/* En pantallas pequeñas (móvil), apilamos los bloques en columna */
+@media screen and (max-width: 750px) {
+
+    /* Sobre mí: pasa a columna */
+    .sobremi-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
